@@ -1,0 +1,47 @@
+{% extends 'adminlte/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">死亡用户列表</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="搜索">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                        {% for h in headers %}
+                            <th>{{ h }}</th>
+                        {% endfor %}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for data in  data_list %}
+                        <tr>
+                            {% for td_data in data %}
+                                <td>{{ td_data }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+    </div>
+{% endblock %}
